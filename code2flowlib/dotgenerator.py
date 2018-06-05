@@ -29,6 +29,7 @@ def generateDotFile(nodes,edges,groups,hidelegend=False):
 				<tr><td>Function call which returns no value</td><td>&#8594;</td></tr>
 				<tr><td>Function call returns some value</td><td><font color='blue'>&#8594;</font></td></tr>
 				<tr><td>Handler call on raiseEvent</td><td><font color='red'>&#8594;</font></td></tr>
+                <tr><td>Callback call</td><td><font color='pink'>&#8594;</font></td></tr>
 				</table></td></tr></table>
 				>];}
 """
