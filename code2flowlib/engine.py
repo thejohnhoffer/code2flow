@@ -144,7 +144,10 @@ class Node(object):
 		'''
 		attributes = {}
 
-		attributes['label']="%d: %s"%(self.lineNumber,self.getFullName())
+		scope = self.parent.parent
+		scopeName = scope.name if scope else ''
+		helpfulName = self.getFullName().replace('prototype', scopeName)
+		attributes['label']=helpfulName
 		attributes['shape']="rect"
 		attributes['style']="rounded"
 		#attributes['splines']='ortho'
