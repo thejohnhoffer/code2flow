@@ -144,14 +144,21 @@ class Node(object):
 		'''
 		attributes = {}
 
-		scope = self.parent.parent
-		scopeName = scope.name if scope else ''
-		helpfulName = self.getFullName().replace('prototype', scopeName)
+		scope = self
+		fullName = self.getFullName()
+		parents = fullName.split('.')
+		for _ in range(len(parents)):
+			scope = scope.parent
+		if scope.name == 'prototype':
+			scope = scope.parent
+		fileName = scope.name
+
+		helpfulName = fullName.replace('prototype', fileName)
 		attributes['label']=helpfulName
 		attributes['shape']="rect"
 		attributes['style']="rounded"
 		#attributes['splines']='ortho'
-		if 'prototype' in self.getFullName():
+		if 'prototype' == (['','']+parents)[-2]:
 			attributes['style']+=',filled'
 			attributes['fillcolor']='coral'
 
