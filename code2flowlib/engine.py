@@ -151,12 +151,9 @@ class Node(object):
 		attributes['shape']="rect"
 		attributes['style']="rounded"
 		#attributes['splines']='ortho'
-		if self.isTrunk:
+		if scopeName:
 			attributes['style']+=',filled'
 			attributes['fillcolor']='coral'
-		elif self.isLeaf:
-			attributes['style']+=',filled'
-			attributes['fillcolor']='green'
 
 		ret = self._getUID()
 		if attributes:
