@@ -151,7 +151,7 @@ class Node(object):
 		attributes['shape']="rect"
 		attributes['style']="rounded"
 		#attributes['splines']='ortho'
-		if scopeName:
+		if 'prototype' in self.getFullName():
 			attributes['style']+=',filled'
 			attributes['fillcolor']='coral'
 
